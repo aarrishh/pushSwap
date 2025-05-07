@@ -6,7 +6,7 @@
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 15:50:01 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/02 20:38:44 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/06 22:25:15 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,20 @@ void	sort_3(t_stack **a)
 		return ;
 	else if (a1 > a2 && a2 > a3 && a3 < a1)
 	{
-		ra(a);
-		sa(a);
+		ra(a, 1);
+		sa(a, 1);
 	}
 	else if (a1 < a2 && a2 > a3 && a3 > a1)
 	{
-		rra(a);
-		sa(a);
+		rra(a, 1);
+		sa(a, 1);
 	}
 	else if (a1 > a2 && a2 < a3 && a3 > a1)
-		sa(a);
+		sa(a, 1);
 	else if (a1 > a2 && a2 < a3 && a3 < a1)
-		ra(a);
+		ra(a, 1);
 	else if (a1 < a2 && a2 > a3 && a3 < a1)
-		rra(a);
+		rra(a, 1);
 }
 
 void	sort_5(t_stack **a, t_stack **b)
@@ -79,6 +79,6 @@ void	sort_5(t_stack **a, t_stack **b)
 		count++;
 	}
 	sort_3(a);
-	pa(a, b);
-	pa(a, b);
+	pa(a, b, 1);
+	pa(a, b, 1);
 }

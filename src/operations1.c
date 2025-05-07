@@ -6,13 +6,13 @@
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 15:48:32 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/02 20:27:03 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/06 22:30:35 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, int i)
 {
 	t_stack	*tmp;
 	t_stack	*idk;
@@ -27,10 +27,11 @@ void	rb(t_stack **b)
 		idk->next = NULL;
 		tmp->next = idk;
 	}
-	write (1, "rb\n", 3);
+	if (i == 1)
+		write (1, "rb\n", 3);
 }
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, int i)
 {
 	t_stack	*tmp;
 	t_stack	*idk;
@@ -47,10 +48,11 @@ void	rra(t_stack **a)
 		idk->next = *a;
 		*a = idk;
 	}
-	write(1, "rra\n", 4);
+	if (i == 1)
+		write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, int i)
 {
 	t_stack	*tmp;
 	t_stack	*idk;
@@ -67,5 +69,34 @@ void	rrb(t_stack **b)
 		idk->next = *b;
 		*b = idk;
 	}
-	write (1, "rrb\n", 4);
+	if (i == 1)
+		write (1, "rrb\n", 4);
+}
+
+void	rr(t_stack **a, t_stack **b, int i)
+{
+	if (i == 1)
+	{
+		ra(a, 1);
+		rb(b, 1);
+	}
+	else
+	{
+		ra(a, 0);
+		rb(b, 0);
+	}
+}
+
+void	rrr(t_stack **a, t_stack **b, int i)
+{
+	if (i == 1)
+	{
+		rra(a, 1);
+		rrb(b, 1);
+	}
+	else
+	{
+		rra(a, 0);
+		rrb(b, 0);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 15:54:39 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/02 19:16:07 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/06 22:27:48 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,14 @@ void	find_position(t_stack **b, t_stack **a, t_stack **tmp)
 	if ((*tmp)->index_b > size / 2)
 	{
 		while ((*b)->data != value)
-			rrb(b);
+			rrb(b, 1);
 	}
 	else if ((*tmp)->index_b < size / 2)
 	{
 		while ((*b)->data != value)
-			rb(b);
+			rb(b, 1);
 	}
-	pa(a, b);
+	pa(a, b, 1);
 }
 
 void	move_b_to_a(t_stack **a, t_stack **b)

@@ -6,7 +6,7 @@
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 15:54:09 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/02 20:37:54 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/06 22:24:08 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ void	move_two_smallest_to_b(int data, int len, t_stack **a, t_stack **b)
 	if (len / 2 < count)
 	{
 		while (tmp->next != NULL)
-			rra(a);
-		rra(a);
-		pb(a, b);
+			rra(a, 1);
+		rra(a, 1);
+		pb(a, b, 1);
 	}
 	else
 	{
 		while (--count)
-			ra(a);
-		pb(a, b);
+			ra(a, 1);
+		pb(a, b, 1);
 	}
 }
 

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 15:46:39 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/02 19:13:36 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/06 21:17:30 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	ft_strlen(const char *str)
+static size_t	ft_strlen1(const char *str)
 {
 	size_t	i;
 
@@ -32,7 +32,7 @@ static int	getword(char const *s, char c)
 
 	i = 0;
 	count_word = 0;
-	len = ft_strlen(s);
+	len = ft_strlen1(s);
 	while (s && s[i])
 	{
 		while (s[i] && (s[i] == c))

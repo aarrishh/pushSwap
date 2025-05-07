@@ -6,13 +6,13 @@
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 15:47:41 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/02 20:24:36 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/06 22:21:57 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, int i)
 {
 	int	num;
 
@@ -21,10 +21,11 @@ void	sa(t_stack **a)
 	num = (*a)->data;
 	(*a)->data = (*a)->next->data;
 	(*a)->next->data = num;
-	write (1, "sa\n", 3);
+	if (i == 1)
+		write (1, "sa\n", 3);
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, int i)
 {
 	int	num;
 
@@ -33,10 +34,11 @@ void	sb(t_stack **b)
 	num = (*b)->data;
 	(*b)->data = (*b)->next->data;
 	(*b)->next->data = num;
-	write (1, "sb\n", 3);
+	if (i == 1)
+		write (1, "sb\n", 3);
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b, int i)
 {
 	t_stack	*tmp;
 
@@ -53,10 +55,11 @@ void	pb(t_stack **a, t_stack **b)
 			*b = tmp;
 		}
 	}
-	write (1, "pb\n", 3);
+	if (i == 1)
+		write (1, "pb\n", 3);
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b, int i)
 {
 	t_stack	*tmp;
 
@@ -73,10 +76,11 @@ void	pa(t_stack **a, t_stack **b)
 			*a = tmp;
 		}
 	}
-	write (1, "pa\n", 3);
+	if (i == 1)
+		write (1, "pa\n", 3);
 }
 
-void	ra(t_stack **a)
+void	ra(t_stack **a, int i)
 {
 	t_stack	*tmp;
 	t_stack	*idk;
@@ -91,5 +95,6 @@ void	ra(t_stack **a)
 		idk->next = NULL;
 		tmp->next = idk;
 	}
-	write (1, "ra\n", 3);
+	if (i == 1)
+		write (1, "ra\n", 3);
 }

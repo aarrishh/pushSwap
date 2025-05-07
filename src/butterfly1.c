@@ -6,7 +6,7 @@
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 19:15:54 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/02 19:16:43 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/06 22:28:04 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,21 @@ void	butterfly(t_stack **a, t_stack **b, int n)
 	{
 		if ((*a)->index <= count)
 		{
-			pb(a, b);
-			rb(b);
+			pb(a, b, 1);
+			rb(b, 1);
 			count++;
 		}
 		else if ((*a)->index <= count + n)
 		{
-			pb(a, b);
+			pb(a, b, 1);
 			count++;
 		}
 		else
-			ra(a);
+			ra(a, 1);
 	}
 	while (*b)
 	{
 		move_b_to_a(a, b);
-		pa(a, b);
+		pa(a, b, 1);
 	}
 }
