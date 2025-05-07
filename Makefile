@@ -1,19 +1,20 @@
 NAME = push_swap
 INC_DIR = includes
 SRC_DIR = src
+SRC_DIR_BONUS = src_bonus
 BON_DIR = bonus
 BONUS = checker
 
 SRC =  $(SRC_DIR)/butterfly.c  $(SRC_DIR)/butterfly1.c  $(SRC_DIR)/functions.c \
 		$(SRC_DIR)/functions1.c  $(SRC_DIR)/main.c  $(SRC_DIR)/operations.c \
 		$(SRC_DIR)/operations1.c  $(SRC_DIR)/sorting.c  $(SRC_DIR)/split.c \
-		$(SRC_DIR)/validation.c
+		$(SRC_DIR)/validation.c  $(SRC_DIR)/sort.c
 
-BSRC = $(SRC_DIR)/get_next_line.c  $(SRC_DIR)/get_next_line_utils.c \
-		$(SRC_DIR)/butterfly.c  $(SRC_DIR)/butterfly1.c  $(SRC_DIR)/functions.c \
-		$(SRC_DIR)/functions1.c  $(SRC_DIR)/bonus.c $(SRC_DIR)/operations.c \
-		$(SRC_DIR)/operations1.c  $(SRC_DIR)/sorting.c  $(SRC_DIR)/split.c \
-		$(SRC_DIR)/validation.c
+BSRC = $(SRC_DIR_BONUS)/get_next_line.c  $(SRC_DIR_BONUS)/get_next_line_utils.c \
+		$(SRC_DIR_BONUS)/butterfly.c  $(SRC_DIR_BONUS)/butterfly1.c  $(SRC_DIR_BONUS)/functions.c \
+		$(SRC_DIR_BONUS)/functions1.c  $(SRC_DIR_BONUS)/bonus.c $(SRC_DIR_BONUS)/operations.c \
+		$(SRC_DIR_BONUS)/operations1.c  $(SRC_DIR_BONUS)/sorting.c  $(SRC_DIR_BONUS)/split.c \
+		$(SRC_DIR_BONUS)/validation.c $(SRC_DIR_BONUS)/sort.c
 
 OBJ = $(SRC:.c=.o)
 

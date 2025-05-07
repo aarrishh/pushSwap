@@ -6,7 +6,7 @@
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 21:03:34 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/07 22:05:30 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/07 21:32:06 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ void	check(t_stack **a, t_stack **b)
 			indexing(a);
 			butterfly(a, b, formula_n(size_list(*a)));
 		}
+	}
+	else
+	{
+		sort_check(*a, *b);
+		return ;
 	}
 }
 
