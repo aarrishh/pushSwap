@@ -6,55 +6,51 @@
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 15:46:39 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/06 21:17:30 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:19:45 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	ft_strlen1(const char *str)
+static int in_str(char c, const char *str)
 {
-	size_t	i;
-
-	if (str == NULL)
-		return (0);
-	i = 0;
-	while (str[i])
+	int i = 0;
+	while (str[i] && str[i] != c)
 		i++;
-	return (i);
+	if (str[i] == c)
+		return 1;
+	return 0;
 }
 
-static int	getword(char const *s, char c)
+static int	getword(char const *s, char *c)
 {
 	int	i;
 	int	count_word;
-	int	len;
 
 	i = 0;
 	count_word = 0;
-	len = ft_strlen1(s);
 	while (s && s[i])
 	{
-		while (s[i] && (s[i] == c))
-			i++;
-		while (s[i] && (s[i] != c))
-			i++;
-		if ((s[i - 1] == c) && (i == len))
-			count_word--;
-		count_word++;
+		if(in_str(s[i], c) == 0)
+		{
+			count_word++;
+			while(s[i] && in_str(s[i], c) == 0)
+				i++;
+		}
+		i++;
 	}
 	return (count_word);
 }
 
-static int	malloc_char(char const *s, char c, int *i, int *start)
+static int	malloc_char(char const *s, char *c, int *i, int *start)
 {
 	int	len;
 
 	len = 0;
-	while (s[*i] == c)
+	while (in_str(s[*i], c) == 1)
 		(*i)++;
 	*start = *i;
-	while (s[*i] && s[*i] != c)
+	while (s[*i] && in_str(s[*i], c) == 0)
 	{
 		len++;
 		(*i)++;
@@ -78,7 +74,7 @@ static char	*func_copy(char const *s, int len_current_line, int start)
 	return (line);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char *c)
 {
 	int		i;
 	char	**buffer;
@@ -89,6 +85,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	ind = -1;
 	count_word = getword(s, c);
+	start = 0;
 	buffer = (char **)malloc((count_word + 1) * sizeof(char *));
 	if (buffer == NULL)
 		return (NULL);

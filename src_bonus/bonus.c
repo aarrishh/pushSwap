@@ -6,7 +6,7 @@
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:59:36 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/07 21:45:27 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/08 19:00:18 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	gnl_call(t_stack **a, t_stack **b)
 	while (gnl != NULL)
 	{
 		line_by_line(gnl, a, b);
+		free(gnl);
 		gnl = get_next_line(0);
 	}
 	sort_check(*a, *b);

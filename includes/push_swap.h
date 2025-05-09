@@ -6,7 +6,7 @@
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 17:46:12 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/07 21:49:55 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:21:06 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_stack
 }	t_stack;
 
 // libft_functions
-char		**ft_split(char const *s, char c);
+char		**ft_split(char const *s, char *c);
 long long	ft_atoi(const char *str);
 
 // operations
@@ -58,6 +58,8 @@ int			formula_n(int size);
 void		indexing(t_stack **a);
 void		indexing_b(t_stack **b);
 void		move_b_to_a(t_stack **a, t_stack **b);
+void	move_b_to_aa(t_stack **a, t_stack **b);// gpt
+
 void		butterfly(t_stack **a, t_stack **b, int n);
 
 // check_functions

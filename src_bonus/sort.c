@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation1.c                                      :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 21:30:47 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/07 21:31:14 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/08 19:04:56 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	helper(char **str, t_stack **a)
 		node = create_node(res);
 		add_back(node, a);
 		j++;
+	}
+	if (check_duplicates(*a) == 0)
+	{
+		free_split(str);
+		print_error(a);
 	}
 }
 
