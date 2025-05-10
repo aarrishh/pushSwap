@@ -6,7 +6,7 @@
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 17:46:12 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/09 17:21:06 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/10 16:22:59 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ typedef struct s_stack
 }	t_stack;
 
 // libft_functions
-char		**ft_split(char const *s, char *c);
 long long	ft_atoi(const char *str);
+size_t		ft_strlen1(const char *str);
+char		**ft_split(char const *s, char *del);
 
 // operations
 void		sa(t_stack **a, int i);
@@ -58,8 +59,6 @@ int			formula_n(int size);
 void		indexing(t_stack **a);
 void		indexing_b(t_stack **b);
 void		move_b_to_a(t_stack **a, t_stack **b);
-void	move_b_to_aa(t_stack **a, t_stack **b);// gpt
-
 void		butterfly(t_stack **a, t_stack **b, int n);
 
 // check_functions
@@ -68,6 +67,7 @@ int			check_duplicates(t_stack *a);
 int			check_white_spaces(char *str);
 void		check(t_stack **a, t_stack **b);
 void		sort_check(t_stack *a, t_stack *b);
+void		check_line_len(char *s, t_stack **a);
 void		check_max_min(long long num, t_stack **a, char **str);
 
 // create_stack_functions

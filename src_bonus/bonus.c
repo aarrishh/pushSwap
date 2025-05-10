@@ -6,7 +6,7 @@
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:59:36 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/08 19:00:18 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/10 15:40:05 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int	main(int argc, char **argv)
 		{
 			if (check_white_spaces(argv[i]) == 1)
 				print_error(&a);
-			str = ft_split(argv[i], ' ');
+			str = ft_split(argv[i], "\t\n\f\r\v ");
 			helper(str, &a);
 			free_split(str);
 			i++;

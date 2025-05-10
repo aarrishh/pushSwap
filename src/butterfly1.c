@@ -6,7 +6,7 @@
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 19:15:54 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/08 21:10:51 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/07 21:27:14 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	butterfly(t_stack **a, t_stack **b, int n)
 	}
 	while (*b)
 	{
-		move_b_to_aa(a, b);
+		move_b_to_a(a, b);
 		pa(a, b, 1);
 	}
 }

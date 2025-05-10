@@ -6,51 +6,69 @@
 /*   By: arimanuk <arimanuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 15:46:39 by arimanuk          #+#    #+#             */
-/*   Updated: 2025/05/09 17:20:21 by arimanuk         ###   ########.fr       */
+/*   Updated: 2025/05/10 15:26:56 by arimanuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int in_str(char c, const char *str)
+static size_t	ft_strlen1(const char *str)
 {
-	int i = 0;
-	while (str[i] && str[i] != c)
+	size_t	i;
+
+	if (str == NULL)
+		return (0);
+	i = 0;
+	while (str[i])
 		i++;
-	if (str[i] == c)
-		return 1;
-	return 0;
+	return (i);
 }
 
-static int	getword(char const *s, char *c)
+static int	find(char c, char *del)
+{
+	int	i;
+
+	i = 0;
+	while (del[i] != '\0')
+	{
+		if (c == del[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+static int	getword(char const *s, char *del)
 {
 	int	i;
 	int	count_word;
+	int	len;
 
 	i = 0;
 	count_word = 0;
+	len = ft_strlen1(s);
 	while (s && s[i])
 	{
-		if(in_str(s[i], c) == 0)
-		{
-			count_word++;
-			while(s[i] && in_str(s[i], c) == 0)
-				i++;
-		}
-		i++;
+		while (s[i] && find(s[i], del) == 1)
+			i++;
+		while (s[i] && find(s[i], del) != 1)
+			i++;
+		if (find(s[i - 1], del) == 1 && (i == len))
+			count_word--;
+		count_word++;
 	}
 	return (count_word);
 }
 
-static int	malloc_char(char const *s, char *c, int *i, int *start)
+static int	malloc_char(char const *s, char *del, int *i, int *start)
 {
 	int	len;
 
 	len = 0;
-	while (in_str(s[*i], c) == 1)
+	while (find(s[*i], del) == 1)
 		(*i)++;
 	*start = *i;
-	while (s[*i] && in_str(s[*i], c) == 0)
+	while (s[*i] && find(s[*i], del) != 1)
 	{
 		len++;
 		(*i)++;
@@ -74,7 +92,7 @@ static char	*func_copy(char const *s, int len_current_line, int start)
 	return (line);
 }
 
-char	**ft_split(char const *s, char *c)
+char	**ft_split(char const *s, char *del)
 {
 	int		i;
 	char	**buffer;
@@ -84,15 +102,14 @@ char	**ft_split(char const *s, char *c)
 
 	i = 0;
 	ind = -1;
-	count_word = getword(s, c);
-	start = 0;
+	count_word = getword(s, del);
 	buffer = (char **)malloc((count_word + 1) * sizeof(char *));
 	if (buffer == NULL)
 		return (NULL);
 	buffer[count_word] = NULL;
 	while (count_word--)
 	{
-		buffer[++ind] = func_copy(s, malloc_char(s, c, &i, &start), start);
+		buffer[++ind] = func_copy(s, malloc_char(s, del, &i, &start), start);
 		if (!buffer[ind])
 		{
 			while (ind)

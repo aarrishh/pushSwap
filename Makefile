@@ -8,7 +8,7 @@ BONUS = checker
 SRC =  $(SRC_DIR)/butterfly.c  $(SRC_DIR)/butterfly1.c  $(SRC_DIR)/functions.c \
 		$(SRC_DIR)/functions1.c  $(SRC_DIR)/main.c  $(SRC_DIR)/operations.c \
 		$(SRC_DIR)/operations1.c  $(SRC_DIR)/sorting.c  $(SRC_DIR)/split.c \
-		$(SRC_DIR)/validation.c
+		$(SRC_DIR)/validation.c  $(SRC_DIR)/sort.c
 
 BSRC = $(SRC_DIR_BONUS)/get_next_line.c  $(SRC_DIR_BONUS)/get_next_line_utils.c \
 		$(SRC_DIR_BONUS)/butterfly.c  $(SRC_DIR_BONUS)/butterfly1.c  $(SRC_DIR_BONUS)/functions.c \
@@ -21,7 +21,7 @@ OBJ = $(SRC:.c=.o)
 BOBJ = $(BSRC:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I $(INC_DIR)  #-fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror -I $(INC_DIR) #-fsanitize=address -g3
 
 RM = rm -f
 
